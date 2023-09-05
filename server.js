@@ -24,7 +24,7 @@ app.use(express.urlencoded({
     extended:true
 }))
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/Styling'))
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname + '/index.html'))
@@ -47,7 +47,7 @@ app.post('/auth', (req,res) => {
     let username = req.body.username
     let password = req.body.password
     if(username && password) {
-        connection.query('SELECT * FROM user WHERE username ? AND password = ?', [username], [password], (error,result,fields) => {
+        connection.query('select * from user where username= ? and password= ?', [username, password], (error,result,fields) => {
             if(error) {
                 throw error;
             }
@@ -71,11 +71,11 @@ app.post('/authreg', (req,res) => {
     let username = req.body.username
     let password = req.body.password
     if(username && password) {
-        connection.query('INSERT INTO user (username, password) values ( ? , ?)', [username], [password], (error,result,fields) => {
+        connection.query('INSERT INTO user(username, password) values ( ? , ?)', [username, password], (error,result,fields) => {
             if(error) {
                 throw error;
             }
-            res.redirect('/home')
+            res.redirect('/')
             res.end()
         })
     }else{
