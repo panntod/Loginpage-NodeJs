@@ -30,8 +30,8 @@ app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname + '/index.html'))
 })
 
-app.get('/regrister', (req,res) => {
-    res.sendFile(path.join(__dirname + '/regrister.html'))
+app.get('/register', (req,res) => {
+    res.sendFile(path.join(__dirname + '/register.html'))
 })
 
 app.get('/home', (req, res) => {
@@ -75,7 +75,7 @@ app.post('/authreg', (req,res) => {
             if(error) {
                 throw error;
             }
-            res.redirect('/')
+            res.redirect('/home')
             res.end()
         })
     }else{
