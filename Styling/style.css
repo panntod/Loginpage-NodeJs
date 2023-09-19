@@ -75,30 +75,22 @@ body{
     background: transparent;
     text-transform: uppercase;
 }
-.login-box form a{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    color: #03e9f4;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
+
+p{
+    font-size: 14px;
+}
+.register{
+    color: #fff;
+    text-align: center;
+    margin: 30px 5px 10px 5px;
 }
 
-.login-box a:hover{
-    background: #03e9f4;
-    color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 0 5px #03e9f4,
-    0 0 25px #03e9f4,
-    0 0 50px #03e9f4,
-    0 0 100px #03e9f4;
+a{
+    color: #03e9f4;
+    text-decoration: none;
+    margin-left: 5px;
 }
+
 .login-box button:hover{
     background: #03e9f4;
     color: #fff;
@@ -108,10 +100,7 @@ body{
     0 0 50px #03e9f4,
     0 0 100px #03e9f4;
 }
-.login-box a span{
-    position: absolute;
-    display: block;
-}
+
 .login-box button span{
     position: absolute;
     display: block;
