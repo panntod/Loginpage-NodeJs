@@ -2,6 +2,7 @@ const mysql = require('mysql')
 const express = require('express')
 const session = require('express-session')
 const path = require('path')
+const PORT = 9090
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -89,9 +90,9 @@ connection.connect((err) => {
         console.log("Cant connect to database" +"\n"+ err.message);
         return;
     }
-    console.log("Database is connected...")
-    app.listen(9090, () => {
-        console.log("Server is running...")
+    console.log("Database is connected")
+    app.listen(PORT, () => {
+        console.log(`Server is running ${PORT}`)
     })
 })
 
