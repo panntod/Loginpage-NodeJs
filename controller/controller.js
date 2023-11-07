@@ -42,3 +42,19 @@ exports.register = (req, res) => {
         res.end();
     }
 };
+
+exports.logout = (req, res) => {
+    if (req.session.loggedin) {
+        // Hapus data sesi yang menunjukkan pengguna telah login
+        req.session.destroy((err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
+        res.redirect('/');
+    } else {
+        // Pengguna tidak login, arahkan mereka ke halaman login
+        const errorMessage = 'You must be logged in to log out.';
+        res.status(401).send(`<script>alert('${errorMessage}'); window.location.href='/';</script>`);
+    }
+};
