@@ -13,13 +13,15 @@ router.get('/register', (req, res) => {
 
 router.get('/home', (req, res) => {
     if (req.session.loggedin) {
-        res.send('Welcome ' + req.session.username + '!');
+        res.sendFile(path.join(__dirname + '/home.html'));
     } else {
-        res.send('You must login to view this page');
+        const errorMessage = 'You most login to see this page';
+        res.send(`<script>alert('${errorMessage}'); window.location.href='/';</script>`);
     }
 });
 
 router.post('/auth', authController.authenticate);
 router.post('/authreg', authController.register);
+router.post('/logout', authController.logout);
 
 module.exports = router;
